@@ -8,6 +8,17 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 bot = commands.Bot(command_prefix='!', description=description, intents=intents)
+# con un punto el bot imprime instrucciones
+@bot.command(name='instrucciones')
+async def instrucciones(ctx):
+    "instrucciones para usar el bot"
+    await ctx.send("Tienes que generar una conversacion con tu bot mediante palabas como: hola, instrucciones, contaminacion, consejo, reciclaje")
+
+#comando para saludar
+@bot.command(name='hola')
+async def hola(ctx):
+    "hola:)"
+    await ctx.send("Hola, el diá de hoy vamos a tratar un tema super importante, LA CONTAMINACIÓN")
 
 # Comando para explicar qué es la contaminación
 @bot.command(name='contaminacion')
@@ -28,6 +39,13 @@ async def consejos(ctx):
         "6. Evita quemar basura y otros materiales tóxicos."
     ]
     await ctx.send("\n".join(consejos_lista))
+
+#comando para reciclaje
+@bot.command(name='reciclaje')
+async def reciclaje(ctx):
+    "Reciclaje una manera de aliviarle el dolor al planeta"
+    await ctx.send("El reciclaje transforma materiales desechados en nuevos productos, reduciendo residuos y conservando recursos. Es clave para cuidar el planeta y minimizar la contaminación.")
+
 #@bot.command(name='imagen')
 #async def img(ctx):
  #   with open(f'imagenes/{random.randint(1,4)}.jpg', 'rb') as f:
